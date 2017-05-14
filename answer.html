@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>answer</title>
+	<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+	<!--本来还想用bootstrap把页面弄好看一些的。。时间不够了-->
+</head>
+<body>
+<div>
+	<h1>问题1:传参的错误.解释:</h1>
+	<p>
+		在第一个循环中 执行完之后 i的值为3 
+		但是fnArray数组中并未有参数传入 故 之后遍历输出时 输出的i一直是 3(即第一个循环遍历完毕的i的值)
+		所以输出正确的值的方法是 正确的传参(见控制台输出)
+	</p>
+</div>
+<div>
+	<h1>问题2:字符串比较问题.解释:</h1>
+	<p>
+		就是模仿比较字符串的大小
+	</p>
+</div>
+<div>
+	<h1>问题3:括号匹配问题.解释:</h1>
+	<p>
+		用栈就好了 因为JavaScript 没自带栈 所以就用一个数组模仿一下就好了 
+		遇到左括号压入栈 遇到右括号踢出栈 栈空就是刚好匹配
+	</p>
+</div>
+<div>
+	<h1>问题4:JS异步执行.解释:</h1>
+	<p>
+		jquery的延迟回调的原理！ 代码应该有问题 
+	</p>
+</div>
+<div>
+	<h1>问题5:NEXE原理.解释:</h1>
+	<p>
+		NodeJS打包工具NEXE
+
+		因为没有用过打包工具 在它的说明文档里面主要讲的是它的使用
+
+		原理可能要去研究一下，所以来不及解释了，先交了吧!
+	</p>
+</div>
+</body>
+<script type="text/javascript">
+	//First Question
+	//after fix
+	var fnArray = [];
+	for (var i = 0; i < 3; i++) {
+	// we create 3 functions here and store them into array
+	fnArray[i] = function(i) {
+		console.log("the value: " + i); // each should log its value.
+	};
+
+	}
+	for (var j = 0; j < 3; j++) {
+	fnArray[j](j); // and now let's run each one to see
+	}
+	//output: 
+	//the value: 0
+	//the value: 1
+	//the value: 2
+	
+	//Second Question 
+	var a = 'abcabc',
+	        b = 'abcabc';
+	console.log(compareStrCharByChar(a,b));
+    function compareStrCharByChar(m, n){
+        var q = m.length,
+            w = n.length,
+            e;
+        if(q > w){
+            e = w;
+        }else{
+            e = q;
+        }
+        for(var i = 0; i < e; i++){
+            if(m[i] > n[i]){
+                return 1;
+            }else if(m[i] < n[i]){
+                return -1;
+            }else{
+                continue;
+            }
+        }
+        if(q > w){
+            return 1;
+        }else if(q === w){
+            return 0;
+        }else{
+            return -1;
+        }
+    }
+
+
+	//Third Question
+	function isMatchingPair(str) {
+	var arr = [];
+	for(var i = 0; i < str.length;i++)  
+    {  
+        if(str[i] === '('||str[i] === '['||str[i] === '{')
+        {
+        	arr.push(str[i]); 
+        } 
+        if(str[i] === ')')  
+        {  
+            if(arr.length === 0) {
+                return false;  
+            }
+            else if(arr[arr.length-1]==='('){
+            	 arr.pop(); 
+            }
+            else  {
+                return false;  
+            }
+        }  
+        if(str[i]===']')  
+        {  
+            if(arr.length === 0)  {
+                return false;  
+            }
+            else if(arr[arr.length-1] === '[')  {
+            	arr.pop();  
+            } 
+            else  {
+                return false;  
+            }
+        }  
+        if(str[i]==='}')  
+        {  
+            if(arr.length === 0)  {
+                return false;  
+            }
+            else if(arr[arr.length-1] === '{')  {
+            	arr.pop();
+            }
+            else  {
+                return false;  
+            }
+        }
+    }  
+    if(arr.length === 0){
+        return true;  
+    }
+    else  {
+        return false;
+    }
+	}
+	console.log(isMatchingPair('(str[x)xx]')) // return false
+	console.log(isMatchingPair('(str[xx}x'))// return false
+	console.log(isMatchingPair('({[str]})')) // return true
+
+	//4th Question
+	function asyncOneByOne(arr) {
+		var funcQueue = [];
+		// for(var i = 0; i < arr.length; i++){
+		// 	if(arr[i] === "one"){
+		// 		funcQueue.push(one);	
+		// 	}
+		// 	else if(arr[i] === "two"){
+		// 		funcQueue.push(two);
+		// 	}
+		// }
+		for(var j = arr.length-1; j > 0; j --){
+			alert(arr[j-1](j));
+
+		}
+	}
+	function one(callback) {
+	setTimeout(function(){
+	console.log('first');
+	callback();
+	}, 200);
+	}
+	function two(callback) {
+	setTimeout(function(){
+	console.log('second');
+	callback();
+	}, 0);}
+
+	one(two());
+	//asyncOneByOne([one, two]);
+	// will print
+	// > first
+	// > second
+	//asyncOneByOne([one, two, two, one]);
+	// will print
+	// > first
+	// > second
+	// > second
+	// > first
+</script>
+</html>
