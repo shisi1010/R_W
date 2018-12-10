@@ -1,24 +1,26 @@
 
-function one(callback) {
-    setTimeout(function () {
-        console.log('first');
-        callback();
-    }, 200);
-}
+$(document).ready(function () {
+    var p = $("p");
+    p.css("background", "red")
+    var len = p.length;
 
-function two(callback) {
-    setTimeout(function () {
-        console.log('second');
-        callback();
-    }, 0);
-}
-
-function asyncOneByOne(arr) {
-    var s;
-    for (var i = arr.length-1; i>0; i--){
-      if(i!=1){
-          s = arr[i-1](arr[i])
-      }
+    for(var i = 0;i<len;i++){
+        if(i%2 == 0){
+            $(p[i]).click(function () {
+                console.log("奇数");
+            })
+            
+        }
+        else{
+            $(p[i]).click(function () {
+                console.log("偶数");
+            })
+        }
     }
-}
-asyncOneByOne([one, two])
+})
+
+
+$(document).ready(function () {
+    $("#one").css("background", "#66ccff")
+    $(".one").css("background", "#66ccff")
+})
