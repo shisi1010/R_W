@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="Jquery.js"></script>
+    <script src="1211.js"></script>
+</head>
+<body>
+    <h1>Hello, jQuery</h1>
+    <div class="one" id="one">
+        div class="one" id="one"
+        <div class="mini">class="mini"</div>
+    </div>
+    <div class="one" id="two" title="test">
+        class="one" id="two" title="test"
+        <div class="mini">class="mini"</div>
+        <div class="mini">class="mini"</div>
+    </div>
+    <div class="one">
+        <div class="mini">class="mini"</div>
+        <div class="mini">class="mini"</div>
+        <div class="mini">class="mini"</div>
+        <div class="mini" title="tesst">class="mini", title="tesst"</div>
+    </div>
+    <div style="display:none;" class="none">style="display:none;" class="none"</div>
+    <div class="hide">class="hide"</div>
+    <div>
+        include input with type="hidden"<input type="hidden" size="8" />
+    </div>
+    <span id="mover">id="mover" span</span>
+
+</br></br>
+
+    <form id="form1">
+        <label>可用元素:</label><input type="text" value="可用文本框" />
+        <label>不可用元素:</label><input type="text" disabled value="不可用文本框" />
+        <label>可用元素:</label><input type="text" value="可用文本框" />
+        <label>不可用元素:</label><input type="text" disabled value="不可用文本框" />
+        </br>
+        <label>多选框:</label></br>
+        <input type="checkbox" checked value="test1"/>test1
+        <input type="checkbox"  value="test2" />test2
+        <input type="checkbox" value="test3" />test3
+        <input type="checkbox" value="test4" />test4
+        <input type="checkbox" value="test5" />test5
+        </br>
+        </br>
+        <label>下拉列表1:</label>
+        <select name="select1" multiple="multiple" style="height:100px" >
+            <option>湖南</option>
+            <option selected>浙江</option>
+            <option>北京</option>
+            <option selected>广州</option>
+            <option>湖北</option>
+            <option>安徽</option>
+        </select>
+        <select name="select2" >
+            <option>湖南</option>
+            <option>浙江</option>
+            <option selected>北京</option>
+            <option>广州</option>
+            <option>湖北</option>
+            <option>安徽</option>
+        </select>
+    </form>
+
+    <div>
+            <div class="test">
+                <div style="display:none;">aa</div>
+                <div style="display:none;">bb</div>
+                <div style="display:none;">cc</div>
+                <div class="test" style="display:none;">dd</div>
+            </div>
+            <div class="test" style="display:none;">ee</div>
+            <div class="test" style="display:none;">ff</diV>
+    </div>
+</body>
+<style>
+    div, span, p {
+        width: 140px;
+        height: 140px;
+        margin: 5px;
+        background: #aaa;
+        border: #000 1px solid;
+        float: left;
+        font-size: 17px;
+        font-family: Verdana;
+    }
+    div .mini {
+        width: 55px;
+        height: 55px;
+        background: #aaa;
+        font-size: 12px;
+    }
+    div .hide {
+        display: none;
+    }
+</style> 
+</html>
