@@ -56,13 +56,5 @@
 
 $(function () {
 
-    $("p").next("div").hide();
-
-    $(":input").focus(function () {
-        $(this).addClass("focus");
-    }).blur(function () {
-        $(this).removeClass("focus")
-    })
-
-    $("tbody>tr:odd").addClass("odd");
+    console.log($("div").get());
 })
